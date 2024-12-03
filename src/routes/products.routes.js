@@ -42,6 +42,10 @@ router.post("/", async (req, res) => {
             return res.status(400).json({error: "Todos los campos son obligatorios excepto thumbnails"})
         }
         const newProduct = await productManager.addProduct({title, description, code, price, stock, category, thumbnails})
+        const products = await productManager.getAllProducts()
+        // Emitir a través de WebSocket el nuevo array de productos
+        const socketServer = req.app.get('socketServer')
+        socketServer.emit('actualizar-productos', products)
         res.status(201).json(newProduct)
     } catch (error) {
         console.log(error)

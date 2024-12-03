@@ -1,0 +1,38 @@
+<div>
+    Bienvenido! Por favor cargar los datos del producto
+     <form id="registerForm">
+
+        <label>Nombre</label>
+        <input name="title">
+        <br/>
+        <label>Descripcion</label>
+        <input name="description">
+        <br/>
+        <label>Codigo</label>
+        <input name="code">
+        <br/>
+        <label>Precio</label>
+        <input name="price">
+        <br/>
+        <label>Stock</label>
+        <input name="stock">
+        <br/>
+        <label>Categoria</label>
+        <input name="category">
+        <br/>
+
+        <input type="submit">
+    </form>
+</div>
+
+<!-- Contenedor para mostrar los productos en tiempo real -->
+<div>
+    <h3>Productos creados:</h3>
+    <ul id="productList">
+    <!-- Los productos aparecerán aquí -->
+    </ul>
+</div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/realTimeProducts.js"></script>
